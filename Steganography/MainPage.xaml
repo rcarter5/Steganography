@@ -7,7 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  Margin="0,0,-534,0">
+
+        <Image x:Name="imageDisplayBox" HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="265" Margin="10,167,0,0"/>
+        <Button x:Name="loadPictureButton" Content="Load Picture" HorizontalAlignment="Left" Margin="120,130,0,0" VerticalAlignment="Top" Click="LoadPictureButton_Click"/>
+        <RadioButton x:Name="pictureEncryptionRadio" Content="Picture encryption" HorizontalAlignment="Left" Margin="310,93,0,0" VerticalAlignment="Top" Click="pictureEncryptionRadio_Click"/>
+        <RadioButton x:Name="textEncryptionRadio" Content="Text encryption" HorizontalAlignment="Left" Margin="615,93,0,0" VerticalAlignment="Top" Checked="textEncryptionRadio_Checked"/>
+        <Button x:Name="loadPictureEncryptionButton" Content="Load Encryption Picture" HorizontalAlignment="Left" Margin="310,130,0,0" VerticalAlignment="Top" Click="LoadPictureEncryptionButton_Click"/>
+        <Image x:Name="encryptingImage" HorizontalAlignment="Left" Height="165" Margin="310,167,0,0" VerticalAlignment="Top" Width="264"/>
+        <Button x:Name="loadTextEncryptionButton" Content="Load Encryption Text" HorizontalAlignment="Left" Margin="615,130,0,0" VerticalAlignment="Top" Click="LoadTextEncryptionButton_Click"/>
+        <Image x:Name="encrptedImage" HorizontalAlignment="Left" Height="212" Margin="310,384,0,0" VerticalAlignment="Top" Width="351"/>
+        <TextBox x:Name="textToEncryptBox" HorizontalAlignment="Left" Margin="615,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="183"/>
+        <Button x:Name="encryptButton" Content="Embed" HorizontalAlignment="Left" Margin="702,471,0,0" VerticalAlignment="Top" Click="embedButton_Click"/>
+        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="702,508,0,0" VerticalAlignment="Top" Click="saveButton_Click"/>
+        <TextBlock x:Name="messageTextBlock" HorizontalAlignment="Left" Margin="120,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <ComboBox x:Name="bitsToEncryptBox" ItemsSource="{x:Bind bitsToEmbed}" HorizontalAlignment="Left" Margin="615,39,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="615,14,0,0" TextWrapping="Wrap" Text="Bits to  Encrypt" VerticalAlignment="Top"/>
+        <TextBlock x:Name="sizeErrorMessage" Foreground="Red" HorizontalAlignment="Left" Margin="120,471,0,0" TextWrapping="Wrap" Text="The size of the message image is too big!" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <CheckBox x:Name="encryptBox" Content="Encrypt" HorizontalAlignment="Left" Margin="495,56,0,0" VerticalAlignment="Top" Width="79" Checked="encryptBox_Checked" Unchecked="encryptBox_Unchecked"/>
+        <ComboBox x:Name="rotationBox" ItemsSource="{x:Bind rotationAmount}" HorizontalAlignment="Left" Margin="775,39,0,0" VerticalAlignment="Top" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="775,14,0,0" TextWrapping="Wrap" Text="Rotation" VerticalAlignment="Top" Width="64"/>
 
     </Grid>
 </Page>

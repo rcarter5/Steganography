@@ -1,4 +1,5 @@
 ﻿using Steganography.Embed;
+using Steganography.Encrypter;
 using Steganography.Extensions;
 using Steganography.Extract;
 using Steganography.File.io;
@@ -202,7 +203,7 @@ namespace Steganography
             {
                 if (this.textEncryptionRadio.IsEnabled == false)
                 {
-                    await this.embedText(imageEmbedder);
+                    await this.embedImage(imageEmbedder);
                 }
                 else
                 {
@@ -232,6 +233,7 @@ namespace Steganography
                         var sourceOriPixels = pixelData.DetachPixelData();
 
                         this.chooseWhichBitsToEmbed(sourceOriPixels, decoder.PixelWidth, decoder.PixelHeight);
+                        
                         this.bitMapImage =
                             new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
 
@@ -255,7 +257,7 @@ namespace Steganography
             }
         }
 
-        private async Task embedText(ImageEmbedder imageEmbedder)
+        private async Task embedImage(ImageEmbedder imageEmbedder)
         {
             var copyOriBitImageFile = await this.imageToEncript.MakeCopyOfImage();
             var imageToAddCopy = await this.imageUsedToEncrypt.MakeCopyOfImage();
@@ -311,7 +313,11 @@ namespace Steganography
 
                         imageEmbedder.EmbedWholeImage(sourceOriPixels, decoder.PixelWidth, decoder.PixelHeight,
                             sourceOfMono, imageToUseDecoder.PixelWidth, imageToUseDecoder.PixelHeight);
-
+                        if (this.encryptBox.IsChecked == true)
+                        {
+                            ImageEncrypter encrypter = new ImageEncrypter();
+                            encrypter.EncryptImage(sourceOriPixels, decoder.PixelWidth, decoder.PixelHeight);
+                        }
                         this.bitMapImage =
                             new WriteableBitmap((int)decoder.PixelWidth, (int)decoder.PixelHeight);
 

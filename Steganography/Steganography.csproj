@@ -98,6 +98,7 @@
     <Compile Include="Embed\ImageEmbedder.cs" />
     <Compile Include="Embed\TextEmbedder.cs" />
     <Compile Include="Encrypter\ImageEncrypter.cs" />
+    <Compile Include="Extensions\ByteExtensions.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extract\ExtractImage.cs" />
